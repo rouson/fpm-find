@@ -176,8 +176,6 @@ jobs:
     - name: Install macOS Dependencies
       if: contains(matrix.os, 'macos')
       run: |
-        brew update
-        # fpm binary distribution for macOS requires gfortran shared libraries from gcc@12
         brew install gcc@12
         if [[ ${{ matrix.compiler }} == 'gfortran' && ${COMPILER_VERSION} -gt 15 ]] ; then
           brew install gcc@${COMPILER_VERSION}
